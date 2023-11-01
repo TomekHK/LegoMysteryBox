@@ -12,7 +12,7 @@ function MinifigCardContent({ minifig }: { minifig: IMinifig }) {
         image={minifig.set_img_url}
       />
       <CardContent>
-        <Typography variant="h6" align="center" sx={{ minHeight: "72px" }}>
+        <Typography variant="body1" align="center" sx={{ minHeight: "72px" }}>
           {shortenString(minifig.name)}
         </Typography>
       </CardContent>

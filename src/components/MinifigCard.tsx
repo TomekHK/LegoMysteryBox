@@ -1,9 +1,4 @@
-import {
-  Button,
-  Card,
-  CardActionArea,
-  CardActions,
-} from "@mui/material";
+import { Button, Card, CardActionArea, CardActions } from "@mui/material";
 import MinifigCardContent from "./MinifigCardContent";
 
 function MinifigCard({
@@ -18,9 +13,7 @@ function MinifigCard({
   return (
     <Card
       sx={{
-        boxShadow: isSelected
-          ? "0px 0px 10px 5px rgba(255, 165, 0, 0.5)"
-          : "none",
+        boxShadow: isSelected ? "0px 0px 12px 3px #333" : "none",
       }}
     >
       <CardActionArea onClick={onSelect}>
