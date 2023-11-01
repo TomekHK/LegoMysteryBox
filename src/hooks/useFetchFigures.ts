@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import apiConfig from "../../apiConfig";
 
-const useFetchData = () => {
+const useFetchFigures = () => {
   const [data, setData] = useState<IMinifig[] | null>(null);
   const [error, setError] = useState<Error | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -37,4 +37,4 @@ const useFetchData = () => {
   return { data, error, isLoading };
 };
 
-export default useFetchData;
+export default useFetchFigures;

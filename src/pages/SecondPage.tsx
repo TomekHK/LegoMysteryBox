@@ -1,5 +1,5 @@
 import { Box, Grid, Typography } from "@mui/material";
-import useFetchData from "../hooks/useFetchData";
+import useFetchData from "../hooks/useFetchFigures";
 import shuffleArray from "../helpers/shuffleArray";
 import MinifigCard from "../components/MinifigCard";
 import { useEffect, useState } from "react";

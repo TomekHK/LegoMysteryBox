@@ -3,10 +3,8 @@ import {
   Card,
   CardActionArea,
   CardActions,
-  CardContent,
-  CardMedia,
-  Typography,
 } from "@mui/material";
+import MinifigCardContent from "./MinifigCardContent";
 
 function MinifigCard({
   minifig,
@@ -15,7 +13,7 @@ function MinifigCard({
 }: {
   minifig: IMinifig;
   isSelected: boolean;
-  onSelect: any;
+  onSelect: React.MouseEventHandler<HTMLButtonElement>;
 }) {
   return (
     <Card
@@ -26,17 +24,7 @@ function MinifigCard({
       }}
     >
       <CardActionArea onClick={onSelect}>
-        <CardMedia
-          component="img"
-          alt={minifig.name}
-          height="140"
-          sx={{ objectFit: "contain" }}
-          image={minifig.set_img_url}
-        />
-        <CardContent>
-          <Typography variant="h6">{minifig.name}</Typography>
-          <Typography variant="body2">Set Number: {minifig.set_num}</Typography>
-        </CardContent>
+        <MinifigCardContent minifig={minifig} />
       </CardActionArea>
       <CardActions>
         <Button
