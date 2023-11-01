@@ -1,23 +1,13 @@
-import { Box, Typography, Button } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Typography } from "@mui/material";
+import NavigationButton from "../components/NavigationButton";
 
-function FirstPage(): JSX.Element {
+function FirstPage() {
   return (
     <>
       <Typography variant="h4" align="center">
         LEGO Harry Potter mystery box!
       </Typography>
-      <Box display="flex" justifyContent="center"></Box>
-      <Box mt={2} display="flex" justifyContent="center">
-        <Link to="/select">
-          <Button
-            variant="contained"
-            color="primary"
-          >
-            LET'S GO!
-          </Button>
-        </Link>
-      </Box>
+      <NavigationButton linkTo="/select" label="LET'S GO!" />
     </>
   );
 }

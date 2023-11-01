@@ -3,6 +3,7 @@ import useFetchData from "../hooks/useFetchData";
 import shuffleArray from "../helpers/shuffleArray";
 import MinifigCard from "../components/MinifigCard";
 import { useEffect, useState } from "react";
+import NavigationButton from "../components/NavigationButton";
 
 const SecondPage = () => {
   const { data, error, isLoading } = useFetchData();
@@ -46,6 +47,11 @@ const SecondPage = () => {
           </Grid>
         ))}
       </Grid>
+      <NavigationButton
+        linkTo="/shipping"
+        label="PROCEED TO SHIPMENT"
+        disabled={!randomFigures.length || !selectedFigure}
+      />
     </>
   );
 };

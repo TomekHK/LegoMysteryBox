@@ -4,6 +4,7 @@ import FirstPage from "./pages/FirstPage";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import SecondPage from "./pages/SecondPage";
+import ThirdPage from "./pages/ThirdPage";
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
           <Routes>
             <Route path="/" element={<FirstPage />} />
             <Route path="/select" element={<SecondPage />} />
-            <Route path="/shipping" element={<FirstPage />} />
+            <Route path="/shipping" element={<ThirdPage />} />
           </Routes>
         </Router>
       </Container>
