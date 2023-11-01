@@ -5,6 +5,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import SecondPage from "./pages/SecondPage";
 import ThirdPage from "./pages/ThirdPage";
+import { MinifigContextProvider } from "./contexts/MinifigContext";
 
 function App() {
   return (
@@ -16,13 +17,15 @@ function App() {
       width="100vw"
     >
       <Container maxWidth="lg">
-        <Router>
-          <Routes>
-            <Route path="/" element={<FirstPage />} />
-            <Route path="/select" element={<SecondPage />} />
-            <Route path="/shipping" element={<ThirdPage />} />
-          </Routes>
-        </Router>
+        <MinifigContextProvider>
+          <Router>
+            <Routes>
+              <Route path="/" element={<FirstPage />} />
+              <Route path="/select" element={<SecondPage />} />
+              <Route path="/shipping" element={<ThirdPage />} />
+            </Routes>
+          </Router>
+        </MinifigContextProvider>
       </Container>
     </Box>
   );

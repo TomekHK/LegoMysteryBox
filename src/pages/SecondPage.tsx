@@ -4,14 +4,15 @@ import shuffleArray from "../helpers/shuffleArray";
 import MinifigCard from "../components/MinifigCard";
 import { useEffect, useState } from "react";
 import NavigationButton from "../components/NavigationButton";
+import { useMinifigContext } from "../contexts/MinifigContext";
 
 const SecondPage = () => {
   const { data, error, isLoading } = useFetchData();
+  const { selectedFigure, selectFigure } = useMinifigContext();
   const [randomFigures, setRandomFigures] = useState<IMinifig[]>([]);
-  const [selectedFigure, setSelectedFigure] = useState<IMinifig | null>(null);
 
   const handleMinifigSelect = (figure: IMinifig) => {
-    setSelectedFigure(selectedFigure === figure ? null : figure);
+    selectFigure(selectedFigure === figure ? null : figure);
   };
 
   useEffect(() => {
@@ -38,7 +39,7 @@ const SecondPage = () => {
       </Typography>
       <Grid container spacing={2}>
         {randomFigures.map((figure) => (
-          <Grid item xs={12} sm={6} md={4}>
+          <Grid item xs={12} sm={6} md={4} key={figure.set_num}>
             <MinifigCard
               minifig={figure}
               isSelected={selectedFigure === figure}
