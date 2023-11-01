@@ -11,7 +11,12 @@ function NavigationButton({ linkTo, label, disabled }: INavigationButton) {
   return (
     <Box mt={2} display="flex" justifyContent="center">
       <Link to={linkTo}>
-        <Button variant="contained" color="primary" disabled={disabled}>
+        <Button
+          variant="contained"
+          color="primary"
+          disabled={disabled}
+          size="large"
+        >
           {label}
         </Button>
       </Link>

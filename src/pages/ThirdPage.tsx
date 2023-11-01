@@ -5,6 +5,7 @@ import useFetchSetParts from "../hooks/useFetchSetParts";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import MinifigPartCard from "../components/MinifigPartCard";
+import SubmitForm from "../components/ShippingForm";
 
 function ThirdPage() {
   const { selectedFigure } = useMinifigContext();
@@ -21,7 +22,9 @@ function ThirdPage() {
     <>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={12} md={8}>
-          <Box sx={{ border: "3px solid red" }}>1</Box>
+          <Box>
+            <SubmitForm />
+          </Box>
         </Grid>
         <Grid item xs={12} sm={12} md={4}>
           {selectedFigure && (
