@@ -1,5 +1,5 @@
 ## Installation
-- Use Node version 16 or higher.
+- Use Node version 16.20.2
 - Install the required packages,
 - Create a `.env.local` file in the project's root directory 
 .env.local should contain the following lines

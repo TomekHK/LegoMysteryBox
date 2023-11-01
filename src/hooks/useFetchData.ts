@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import apiConfig from "../../apiConfig";
 
 const useFetchData = () => {
-  const [data, setData] = useState<IMinifigsData | null>(null);
+  const [data, setData] = useState<IMinifig[] | null>(null);
   const [error, setError] = useState<Error | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -21,8 +21,8 @@ const useFetchData = () => {
           throw new Error("Network response was not ok");
         }
 
-        const jsonData = await response.json();
-        setData(jsonData);
+        const jsonData: IMinifigsData = await response.json();
+        setData(jsonData.results);
         setIsLoading(false);
       } catch (error) {
         setError(error as Error);
