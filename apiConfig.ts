@@ -1,5 +1,5 @@
 const apiKey = import.meta.env.VITE_API_KEY;
-const baseUrl = import.meta.env.VITE_BASE_URL;
+const baseUrl = "https://rebrickable.com/api/v3/";
 
 const apiConfig = {
   baseUrl,
