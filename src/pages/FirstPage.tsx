@@ -4,7 +4,7 @@ import NavigationButton from "../components/NavigationButton";
 function FirstPage() {
   return (
     <>
-      <Typography variant="h3" align="center" color="#555555" >
+      <Typography variant="h3" align="center">
         LEGO Harry Potter mystery box!
       </Typography>
       <NavigationButton linkTo="/select" label="LET'S GO!" />

@@ -10,16 +10,17 @@ interface INavigationButton {
 function NavigationButton({ linkTo, label, disabled }: INavigationButton) {
   return (
     <Box mt={2} display="flex" justifyContent="center">
-      <Link to={linkTo}>
-        <Button
-          variant="contained"
-          color="primary"
-          disabled={disabled}
-          size="large"
-        >
+      {disabled ? (
+        <Button variant="contained" color="primary" disabled size="large">
           {label}
         </Button>
-      </Link>
+      ) : (
+        <Link to={linkTo}>
+          <Button variant="contained" color="primary" size="large">
+            {label}
+          </Button>
+        </Link>
+      )}
     </Box>
   );
 }

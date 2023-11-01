@@ -34,7 +34,7 @@ function ThirdPage() {
               </Card>
               <List>
                 {data?.map((part) => (
-                  <ListItem>
+                  <ListItem >
                     <MinifigPartCard part={part.part} />
                   </ListItem>
                 ))}

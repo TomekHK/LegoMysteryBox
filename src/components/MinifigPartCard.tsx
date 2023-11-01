@@ -4,7 +4,7 @@ function MinifigPartCard({ part }: { part: IPart }) {
   return (
     <Card
       sx={{
-        height: "100px",
+        height: "80px",
         display: "flex",
         padding: "8px",
         flexGrow: 1,
