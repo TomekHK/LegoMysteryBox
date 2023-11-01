@@ -2,19 +2,31 @@ import { Box, Grid, Typography } from "@mui/material";
 import useFetchData from "../hooks/useFetchData";
 import shuffleArray from "../helpers/shuffleArray";
 import MinifigCard from "../components/MinifigCard";
+import { useEffect, useState } from "react";
 
 const SecondPage = () => {
   const { data, error, isLoading } = useFetchData();
-  const randomFigures = shuffleArray(data)
-    .filter(
-      (figure) =>
-        figure.name &&
-        typeof figure.num_parts === "number" &&
-        typeof figure.set_img_url === "string" &&
-        typeof figure.set_num === "string" &&
-        typeof figure.set_url === "string"
-    )
-    .slice(0, 3);
+  const [randomFigures, setRandomFigures] = useState<IMinifig[]>([]);
+  const [selectedFigure, setSelectedFigure] = useState<IMinifig | null>(null);
+
+  const handleMinifigSelect = (figure: IMinifig) => {
+    setSelectedFigure(selectedFigure === figure ? null : figure);
+  };
+
+  useEffect(() => {
+    setRandomFigures(
+      shuffleArray(data)
+        .filter(
+          (figure) =>
+            figure.name &&
+            typeof figure.num_parts === "number" &&
+            typeof figure.set_img_url === "string" &&
+            typeof figure.set_num === "string" &&
+            typeof figure.set_url === "string"
+        )
+        .slice(0, 3)
+    );
+  }, [data]);
 
   return isLoading && randomFigures.length !== 3 ? (
     <Box>Loading...</Box>
@@ -26,7 +38,11 @@ const SecondPage = () => {
       <Grid container spacing={2}>
         {randomFigures.map((figure) => (
           <Grid item xs={12} sm={6} md={4}>
-            <MinifigCard minifig={figure} />
+            <MinifigCard
+              minifig={figure}
+              isSelected={selectedFigure === figure}
+              onSelect={() => handleMinifigSelect(figure)}
+            />
           </Grid>
         ))}
       </Grid>
