@@ -18,6 +18,12 @@ function ThirdPage() {
     }
   }, [selectedFigure]);
 
+  useEffect(() => {
+    if (error) {
+      navigate("/error");
+    }
+  }, [error]);
+
   return (
     <>
       <Grid container spacing={2}>
@@ -34,7 +40,7 @@ function ThirdPage() {
               </Card>
               <List>
                 {data?.map((part) => (
-                  <ListItem >
+                  <ListItem>
                     <MinifigPartCard part={part.part} />
                   </ListItem>
                 ))}

@@ -1,7 +1,8 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
 import { TextField, Button, Grid, Box, Typography } from "@mui/material";
 import postData from "../helpers/postData";
+import { useNavigate } from "react-router-dom";
+import formValidationSchema from "../helpers/formValidationSchema";
 
 interface FormData {
   name: string;
@@ -14,28 +15,6 @@ interface FormData {
   state: string;
   zipCode: string;
 }
-
-const validationSchema = Yup.object().shape({
-  name: Yup.string().required("Name is required"),
-  surname: Yup.string().required("Surname is required"),
-  phoneNumber: Yup.string()
-    .required("Phone number is required")
-    .matches(
-      /^\d{9}$/,
-      "Invalid phone number. Enter 9 digits with no other characters"
-    ),
-  email: Yup.string().email("Invalid email").required("Email is required"),
-  dateOfBirth: Yup.date().required("Date of birth is required"),
-  address: Yup.string().required("Address is required"),
-  city: Yup.string().required("City is required"),
-  state: Yup.string().required("State is required"),
-  zipCode: Yup.string()
-    .required("Zip code is required")
-    .matches(
-      /^\d{5}$/,
-      "Invalid zip code. Enter 5 digits with no other characters"
-    ),
-});
 
 const initialValues: FormData = {
   name: "",
@@ -50,16 +29,26 @@ const initialValues: FormData = {
 };
 
 function ShippingForm() {
-  const handleSubmit = (values: FormData) => {
-    postData(values).then((data) => {
-      console.log(data);
-    });
+  const navigate = useNavigate();
+
+  const handleSubmit = async () => {
+    try {
+      const result = await postData(postData);
+
+      if (result.success) {
+        navigate("/success");
+      } else {
+        navigate("/error");
+      }
+    } catch (error) {
+      console.error("An error occurred: " + error);
+    }
   };
 
   return (
     <Formik
       initialValues={initialValues}
-      validationSchema={validationSchema}
+      validationSchema={formValidationSchema}
       onSubmit={handleSubmit}
     >
       {({ isSubmitting, isValid, dirty }) => (
@@ -222,7 +211,7 @@ function ShippingForm() {
               variant="contained"
               color="primary"
               type="submit"
-              disabled={!dirty || !isValid || !isSubmitting}
+              disabled={!dirty || !isValid || isSubmitting}
             >
               Submit
             </Button>

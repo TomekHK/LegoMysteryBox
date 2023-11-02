@@ -5,11 +5,14 @@ import MinifigCard from "../components/MinifigCard";
 import { useEffect, useState } from "react";
 import NavigationButton from "../components/NavigationButton";
 import { useMinifigContext } from "../contexts/MinifigContext";
+import { useNavigate } from "react-router-dom";
 
 const SecondPage = () => {
   const { data, error, isLoading } = useFetchData();
   const { selectedFigure, selectFigure } = useMinifigContext();
   const [randomFigures, setRandomFigures] = useState<IMinifig[]>([]);
+  
+  const navigate = useNavigate();
 
   const handleMinifigSelect = (figure: IMinifig) => {
     selectFigure(selectedFigure === figure ? null : figure);
@@ -29,6 +32,12 @@ const SecondPage = () => {
         .slice(0, 3)
     );
   }, [data]);
+
+  useEffect(() => {
+    if (error) {
+      navigate("/error");
+    }
+  }, [error]);
 
   return isLoading && randomFigures.length !== 3 ? (
     <Box>Loading...</Box>
