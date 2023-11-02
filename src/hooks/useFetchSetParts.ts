@@ -18,6 +18,11 @@ const useFetchSetParts = (setNumber?: string) => {
             headers: headers,
           });
 
+          if (response.status === 401) {
+            alert("Authorization error, check if you ApiKey is valid.");
+            throw new Error("unauthorized");
+          }
+
           if (!response.ok) {
             throw new Error("Network response was not ok");
           }
