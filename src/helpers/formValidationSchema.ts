@@ -17,8 +17,8 @@ const formValidationSchema = Yup.object().shape({
   zipCode: Yup.string()
     .required("Zip code is required")
     .matches(
-      /^\d{5}$/,
-      "Invalid zip code. Enter 5 digits with no other characters"
+      /^(\d{6}|\d{2}-\d{3})$/,
+      "Invalid zip code. Enter 6 digits or 2 digits, hyphen, and 3 digits (e.g., 99-300)"
     ),
 });
 
