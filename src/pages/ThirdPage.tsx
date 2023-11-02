@@ -57,7 +57,7 @@ function ThirdPage() {
                 </Paper>
               </ListItem>
               {data?.map((part) => (
-                <ListItem sx={{ paddingTop: 0 }}>
+                <ListItem sx={{ paddingTop: 0 }} key={part.id}>
                   <MinifigPartCard part={part.part} />
                 </ListItem>
               ))}

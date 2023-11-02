@@ -3,6 +3,8 @@ export default {
   testEnvironment: "jest-environment-jsdom",
   transform: {
     "^.+\\.tsx?$": "ts-jest",
-    // process `*.tsx` files with `ts-jest`
+  },
+  moduleNameMapper: {
+    "^apiConfig$": "<rootDir>/__mocks__/apiConfig.ts",
   },
 };
