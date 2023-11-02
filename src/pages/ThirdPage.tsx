@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import MinifigPartCard from "../components/MinifigPartCard";
 import SubmitForm from "../components/ShippingForm";
-import Loader from "../components/loader";
+import Loader from "../components/Loader";
 
 function ThirdPage() {
   const { selectedFigure } = useMinifigContext();

@@ -28,6 +28,7 @@ function MinifigPartCard({ part }: { part: IPart }) {
             whiteSpace: "nowrap",
             overflow: "hidden",
             textOverflow: "ellipsis",
+            width: "50%",
           }}
         >
           {part.name}

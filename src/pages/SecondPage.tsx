@@ -44,7 +44,10 @@ const SecondPage = () => {
     <Loader />
   ) : (
     <>
-      <Typography variant="h3" align="center" gutterBottom>
+      <Typography
+        variant="h3"
+        align="center"
+      >
         Choose Your Minifig
       </Typography>
       <Grid container spacing={2}>
