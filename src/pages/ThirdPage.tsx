@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import MinifigPartCard from "../components/MinifigPartCard";
 import SubmitForm from "../components/ShippingForm";
+import Loader from "../components/loader";
 
 function ThirdPage() {
   const { selectedFigure } = useMinifigContext();
@@ -24,7 +25,9 @@ function ThirdPage() {
     }
   }, [error]);
 
-  return (
+  return isLoading ? (
+    <Loader />
+  ) : (
     <>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={12} md={8}>
