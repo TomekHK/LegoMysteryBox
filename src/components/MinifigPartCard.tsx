@@ -1,41 +1,33 @@
-import { Card, CardContent, CardMedia, Typography } from "@mui/material";
+import { Paper, Typography, CardMedia, Box } from "@mui/material";
+import shortenString from "../helpers/shortenString";
 
 function MinifigPartCard({ part }: { part: IPart }) {
   return (
-    <Card
+    <Paper
       sx={{
-        height: "80px",
+        width: "95%",
         display: "flex",
-        padding: "8px",
-        flexGrow: 1,
-        flexDirection: "row",
-        justifyContent: "flex-start",
-        alignContent: "center",
+        paddingY: 1,
+        paddingX: 2,
+        alignItems: "center",
       }}
     >
       <CardMedia
         component="img"
         alt={part.name}
         height="90%"
-        sx={{ objectFit: "contain", width: "90px" }}
+        sx={{ objectFit: "contain", width: 90, marginRight: 2 }}
         image={part.part_img_url}
       />
-      <CardContent>
+      <Box>
         <Typography
-          component="div"
-          variant="body2"
-          sx={{
-            whiteSpace: "nowrap",
-            overflow: "hidden",
-            textOverflow: "ellipsis",
-            width: "50%",
-          }}
+          variant="body1"
         >
-          {part.name}
+          {shortenString(part.name)}
         </Typography>
-        <Typography variant="body1">Part Number: {part.part_num}</Typography>
-      </CardContent>
-    </Card>
+        <Typography variant="body2">Part Number: {part.part_num}</Typography>
+      </Box>
+    </Paper>
   );
 }
 

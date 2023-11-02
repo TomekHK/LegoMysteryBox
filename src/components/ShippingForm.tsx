@@ -53,7 +53,7 @@ function ShippingForm() {
     >
       {({ isSubmitting, isValid, dirty }) => (
         <Form>
-          <Typography variant="h3" align="center" color="#555555" gutterBottom>
+          <Typography variant="h1" align="center">
             Shipping details
           </Typography>
           <Grid container spacing={2}>

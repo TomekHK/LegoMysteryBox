@@ -45,7 +45,7 @@ const SecondPage = () => {
   ) : (
     <>
       <Typography
-        variant="h3"
+        variant="h1"
         align="center"
       >
         Choose Your Minifig

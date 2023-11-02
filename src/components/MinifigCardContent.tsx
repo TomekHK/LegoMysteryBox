@@ -12,7 +12,7 @@ function MinifigCardContent({ minifig }: { minifig: IMinifig }) {
         image={minifig.set_img_url}
       />
       <CardContent>
-        <Typography variant="body1" align="center">
+        <Typography variant="h2" align="center">
           {shortenString(minifig.name)}
         </Typography>
       </CardContent>

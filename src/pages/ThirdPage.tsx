@@ -1,4 +1,4 @@
-import { Box, Card, Grid, List, ListItem } from "@mui/material";
+import { Box, Grid, List, ListItem, Paper, Typography } from "@mui/material";
 import { useMinifigContext } from "../contexts/MinifigContext";
 import MinifigCardContent from "../components/MinifigCardContent";
 import useFetchSetParts from "../hooks/useFetchSetParts";
@@ -36,19 +36,32 @@ function ThirdPage() {
           </Box>
         </Grid>
         <Grid item xs={12} sm={12} md={4}>
-          {selectedFigure && (
-            <Box>
-              <Card sx={{ marginX: "16px" }}>
+          {selectedFigure && data && (
+            <List sx={{ paddingBottom: 0 }}>
+              <Paper sx={{ p: 2, m: 2, boxShadow: 1 }}>
                 <MinifigCardContent minifig={selectedFigure} />
-              </Card>
-              <List>
-                {data?.map((part) => (
-                  <ListItem>
-                    <MinifigPartCard part={part.part} />
-                  </ListItem>
-                ))}
-              </List>
-            </Box>
+              </Paper>
+              <ListItem>
+                <Paper
+                  sx={{
+                    p: 1,
+                    m: 0,
+                    boxShadow: 1,
+                    display: "flex",
+                    flexGrow: 1,
+                  }}
+                >
+                  <Typography variant="body1" align="center">
+                    THERE ARE {data?.length} PARTS IN THIS MINIFIG:
+                  </Typography>
+                </Paper>
+              </ListItem>
+              {data?.map((part) => (
+                <ListItem sx={{ paddingTop: 0 }}>
+                  <MinifigPartCard part={part.part} />
+                </ListItem>
+              ))}
+            </List>
           )}
         </Grid>
       </Grid>

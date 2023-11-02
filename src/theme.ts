@@ -29,8 +29,23 @@ const theme = createTheme({
     allVariants: {
       color: "#555555",
     },
-    h3: {
+    h1: {
       marginBottom: "32px",
+      fontSize: "2.5em",
+      fontWeight: 400,
+    },
+    h2: {
+      margin: 0,
+      fontSize: "1.2em",
+      fontWeight: 400,
+    },
+    body1: {
+      fontSize: "0.8em",
+      color: "#555555",
+    },
+    body2: {
+      fontSize: "0.8em",
+      color: "#777777",
     },
   },
 });
